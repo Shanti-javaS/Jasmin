@@ -1,62 +1,73 @@
-<!DOCTYPE html>
-<html lang="ru">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Пример HTML-документа</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+document.addEventListener("DOMContentLoaded", () => {
+    const body = document.body;
+    
+    body.style.fontFamily = "Arial, sans-serif";
+    body.style.margin = "20px";
+    
+    const header = document.createElement("header");
+    const h1 = document.createElement("h1");
+    h1.textContent = "Добро пожаловать на мой сайт!";
+    h1.style.color = "#4CAF50";
+    
+    const nav = document.createElement("nav");
+    const ul = document.createElement("ul");
+    
+    const menuItems = [
+        { text: "О нас", href: "#about" },
+        { text: "Услуги", href: "#services" },
+        { text: "Контакт", href: "#contact" }
+    ];
+    
+    menuItems.forEach(item => {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.textContent = item.text;
+        a.href = item.href;
+        li.appendChild(a);
+        ul.appendChild(li);
+    });
+    
+    nav.appendChild(ul);
+    header.appendChild(h1);
+    header.appendChild(nav);
+    body.appendChild(header);
+    
+    const sections = [
+        {
+            id: "about",
+            title: "О нас",
+            content: "Я - помогу вам достичь ваших целей по внедрению искусственного интеллекта в бизнес процессы."
+        },
+        {
+            id: "services",
+            title: "Услуги",
+            content: "<ul><li>Веб-разработка</li><li>Дизайн</li><li>SEO и маркетинг</li></ul>"
+        },
+        {
+            id: "contact",
+            title: "Контакт",
+            content: "Свяжитесь с нами по адресу: <a href='mailto:info@example.com'>info@example.com</a>"
         }
-
-        h1 {
-            color: #4CAF50;
-        }
-
-        p {
-            line-height: 1.6;
-        }
-    </style>
-</head>
-
-<body>
-
-    <header>
-        <h1>Добро пожаловать на мой сайт!</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">О нас</a></li>
-                <li><a href="#services">Услуги</a></li>
-                <li><a href="#contact">Контакт</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section id="about">
-        <h2>О нас</h2>
-        <p>Я - помогу вам достичь ваших целей по внедрению искусственного интеллекта в бизнес процессы.</p>
-    </section>
-
-    <section id="services">
-        <h2>Услуги</h2>
-        <ul>
-            <li>Веб-разработка</li>
-            <li>Дизайн</li>
-            <li>SEO и маркетинг</li>
-        </ul>
-    </section>
-
-    <section id="contact">
-        <h2>Контакт</h2>
-        <p>Свяжитесь с нами по адресу: <a href="mailto:info@example.com">info@example.com</a></p>
-    </section>
-
-    <footer>
-        <p>&copy; 2023 Все права защищены.</p>
-    </footer>
-
-</body>
-
-</html>
+    ];
+    
+    sections.forEach(sectionData => {
+        const section = document.createElement("section");
+        section.id = sectionData.id;
+        
+        const h2 = document.createElement("h2");
+        h2.textContent = sectionData.title;
+        
+        const content = document.createElement("p");
+        content.innerHTML = sectionData.content;
+        
+        section.appendChild(h2);
+        section.appendChild(content);
+        body.appendChild(section);
+    });
+    
+    const footer = document.createElement("footer");
+    const footerText = document.createElement("p");
+    footerText.innerHTML = "&copy; 2023 Все права защищены.";
+    footer.appendChild(footerText);
+    body.appendChild(footer);
+});
