@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     margin: 20px;
     background-image: url('./AI.jpeg'); /* Замените на путь к вашей картинке */
     background-size: cover;
@@ -37,6 +37,7 @@ section {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый фон */
 }
 
 h2 {
@@ -47,7 +48,7 @@ button {
     margin-top: 10px;
     padding: 10px 15px;
     background-color: #007acc;
-    color: black;
+    color: white;  /* Цвет текста на кнопке */
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -56,6 +57,7 @@ button {
 
 button:hover {
     background-color: #005f99;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 footer {
